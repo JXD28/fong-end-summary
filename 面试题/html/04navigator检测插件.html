@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function hasPlugin(){
+            var arr = []
+            for(var i = 0;i<navigator.plugins.length;i++){
+                arr.push(navigator.plugins[i].name)
+            }
+            return arr
+        }
+
+        console.log(hasPlugin())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

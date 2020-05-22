@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>插入</title>
+    <script>
+    var arry = [1,23,4,5,2,7]
+    
+    
+    function insert(arry){
+        var handle = []
+        handle.push(arry[0])
+        var temp = []
+        for(let i = 1;i<arry.length;i++){
+            for(let j = handle.length-1;j>=0;j--){
+                if(handle[j]<arry[i]){
+                    handle.splice(j+1,0,arry[i])
+                    break
+                }
+                if(j === 0 ){
+                    handle.unshift(arry[i])
+                }
+            }
+        }
+        return handle
+    }
+
+    console.log(insert(arry))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

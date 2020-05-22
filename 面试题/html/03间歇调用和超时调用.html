@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        for (var i = 0; i < 5; i++) {
+            setTimeout(function () {
+                console.log(i);
+            }, 1000)
+        }
+            //setTimeout是异步执行的，1000毫秒后向任务队列里添加一个任务，
+            //只有主线上的全部执行完才会执行任务队列里的任务，
+            //所以当主线程for循环执行完之后 i 的值为5，
+            //这个时候再去任务队列中执行任务，i全部为5；
+            setTimeout(function () {
+                alert('1')
+            }, 3000)
+            setTimeout(function () {
+                alert('2')
+            }, 3000)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

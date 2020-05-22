@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽事件</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box {
+            width: 500px;
+            height: 500px;
+            /* background-color: rebeccapurple; */
+            border:solid red;
+        }
+        .e{
+            width: 200px;
+            height: 200px;
+            /* background-color: rebeccapurple; */
+            border:solid;
+        }
+    </style>
+    <script>
+        window.onload = function (event) {
+            event = event || window.event
+
+            var ddd = document.getElementById('ddd')
+            var ttra = document.getElementById('ttra')
+
+            ddd.ondragstart = function (event) {
+                console.log('开始拖拽')
+                event.dataTransfer.setData('Text',event.target.id)
+            }
+
+            ddd.ondrag = function (event) {
+                console.log('拖拽中')
+            }
+            ddd.ondragend = function (event) {
+                console.log('拖拽 结束')
+            }
+
+            ddd.ondragenter = function (event) {
+                console.log('进入目标元素')
+            }
+
+            ddd.ondragover = function (event) {
+                var event = event || window.event;
+                console.log('在目标元素中拖拽');
+                // event.preventDefault()
+            }
+            ddd.ondragleave = function(){
+                console.log('拖放离开目标元素')
+            }
+            ddd.ondrop = function(event){
+                console.log('拖放');
+           
+ 
+            }
+
+        }
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <div class="box" draggable="true" id='ddd'></div>
+    <div class="e" id="ttra"></div>
+</body>
+
+</html>

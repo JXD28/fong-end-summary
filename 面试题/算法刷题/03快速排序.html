@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>快速排序</title>
+    <script>
+    var arry = [1,23,4,5,2,7]
+    
+    
+    function quick(arry){
+        if(arry.length<=0){
+            return arry
+        }
+        
+        let middleIndex = Math.floor(arry.length/2)
+        let middleValue = arry.splice(middleIndex,1)[0]
+        let left = []
+        let right = []
+
+        for(let i =0;i<arry.length;i++){
+            if(arry[i]>middleValue){
+                right.push(arry[i])
+            }else{
+                left.push(arry[i])
+            }
+        }
+
+        return quick(left).concat(middleValue,quick(right))
+    }
+
+    console.log(quick(arry))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

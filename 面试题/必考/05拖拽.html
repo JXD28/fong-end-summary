@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* 改变鼠标放上去的指针的形状 */
+            cursor: move;
+        }
+
+        .pp {
+            text-align: center;
+            /* p标签不是盒模型,不能设置margin,可以把它放到盒子中 */
+            /* margin: 0 auto; */
+            width: 200px;
+            height: 200px;
+            float: right;
+            background-color: antiquewhite;
+        }
+    </style>
+    <script>
+        // //点击某物体时，用drag对象即可，move和up是全局区域，
+        // 也就是整个文档通用，应该使用document对象而不是drag对象(否则，采用drag对象时物体只能往右方或下方移动)  
+        window.onload = function () {
+
+            var drag = document.getElementById('drag')
+            var ppp = document.getElementById('ppp')
+            //给要拖拽的对象绑定
+
+
+            drag.onmousedown = function (e) {
+                drag.setCapture && drag.setCapture()
+                var e = e || window.e
+                console.log(e.target)
+                var diffx = e.clientX - drag.offsetLeft
+                var diffy = e.clientY - drag.offsetTop
+                ppp.innerHTML = 'y是:' + e.clientY + '\t\tx是:' + e.clientX + '\tleft是:' + drag.offsetLeft + '\ttop是:' + drag.offsetTop + 'windowheight:' + window.innerHeight
+
+
+
+                document.onmousemove = function (e) {
+                    var e = e || window.e
+                    var left = e.clientX - diffx
+                    var top = e.clientY - diffy
+                    //边界设置
+                    if(left<=0 ){
+                        left = 0 
+                    }
+                    else if(top<=0){
+                        top = 0 
+                    }
+                    else if(left >= window.innerWidth-drag.offsetWidth){
+                        left = window.innerWidth-drag.offsetWidth
+                    }
+                    else if(top>= window.innerHeight - drag.offsetHeight){
+                        top = window.innerHeight - drag.offsetHeight
+                    }
+                    
+                    drag.style.left = left +'px'
+                    drag.style.top = top + 'px'
+                    
+                }
+
+                document.onmouseup = function(){
+
+                    document.onmousemove = null
+                    document.onmouseup = null
+
+                    drag.releaseCapture && drag.releaseCapture();
+
+                }
+            }
+        }
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div class="box" id="drag"></div>
+    <div class='pp' id="ppp"></div>
+</body>
+
+</html>

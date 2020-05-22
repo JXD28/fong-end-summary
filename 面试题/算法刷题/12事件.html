@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='1'style ="color:red">
+        我是1
+        <div id='2'style ="color:blue">
+            我是2
+            <div id='3'style ="color:yellow">
+                我是3
+                <div id='4'style ="color:orange">
+                    我是4
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var a = document.getElementById('1')
+    var b = document.getElementById('2')
+    var c = document.getElementById('3')
+    var d = document.getElementById('4')
+    function aa(){
+        // event.stopPropagation()
+        console.log('a')
+    }
+    function bb(){
+        console.log('b')
+    }
+    function cc(){
+        event.stopPropagation()//终止事件传播
+        console.log('c')
+    }
+    function dd(){
+        console.log('d')
+    }
+    a.addEventListener("click",aa,true)//捕获
+    b.addEventListener("click",bb,false)//冒泡
+    c.addEventListener("click",cc,true)//捕获
+    d.addEventListener("click",dd,false)//冒泡
+
+</script>
+</html>

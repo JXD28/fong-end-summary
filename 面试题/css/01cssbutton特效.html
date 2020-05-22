@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .button {
+            color:white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            width: 100px;
+            height: 40px;
+            outline: none;
+            background-color: #ff0081;
+            border-radius: 10%;
+            border-color: #ff0081;
+        }
+
+        a:active {
+            background-color: blue;
+        }
+
+        /* .button::before {
+            position: absolute;
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: #ff0081;
+            box-shadow: 10px 10px #ff0081, 15px 0px 0 2px #ff0081, 20px 15px 0 3px #ff0081
+            无法很好的适应按钮的大小 
+        } */
+
+        a::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: blue;
+        }
+
+        .button::before {
+            position: absolute;
+            content: '';
+            left: -2em;
+            right: -2em;
+            top: -2em;
+            bottom: -2em;
+            pointer-events: none;
+            background-repeat: no-repeat;
+            background-image: radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0),
+                radial-gradient(circle, #ff0081 20%, transparent 0);
+            background-position:-8% 38%, -10% 6%, 16% -6%, 110% 40%, 42% -10%, 53% -6%, -8% 66%, 27% -10%, 71% -12%,
+            108% 19%, 95% -6%, 63% -6%, 17% 108%, -14% 52%, -6% 103%, 53% 107%, 41% 100%, 22% 114%, 70% 111%,                 
+            109% 72%, 115% 108%, 63% 108%, 90% 103%, 111% 53%, 32% 108% ;
+            background-size: 0% 0%;
+            transition: .40s background-position ease-in-out, .40s background-size ease-in-out;
+        }
+
+
+        .button:active::before {
+            background-size: 15% 10%, 20% 20%, 15% 15%, 15% 10%, 20% 20%, 15% 15%, 15% 10%, 20% 20%, 15% 15%,
+                15% 10%, 20% 20%, 15% 15%, 15% 10%, 20% 20%, 15% 15%, 15% 15%, 15% 10%, 20% 20%, 15% 15%,
+                15% 10%, 20% 20%, 15% 15%, 15% 10%, 20% 20%, 15% 15%;
+            background-position: 6% 41%, 4% 24%, 17% 17%, 101% 41%, 42% 14%, 53% 13%, 6% 66%, 27% 8%, 71% 19%,
+                95% 22%, 85% 15%, 63% 17%, 15% 80%, -3% 52%, 8% 86%, 53% 86%, 41% 87%, 22% 91%, 70% 91%,
+                96% 72%, 91% 90%, 63% 85%, 77% 81%, 98% 53%, 31% 86%;
+            transition: 0s;
+        }
+
+        .rrr::before {
+            position: absolute;
+            content: '';
+            background-repeat: no-repeat;
+            background-image: radial-gradient(circle, #ff0081 20%, transparent 0);
+            background-size: 10% 10%;
+            background-position: 10% 40%
+        }
+    </style>
+</head>
+
+<body>
+    <button class="button">Button</button>
+    <button class="rrr">rrr</button>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #sign {
+            /* box-sizing: border-box; */
+            background-color: pink;
+            position: absolute;
+            /* top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0); */
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border:plum solid 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="sign" width="500" height="500"></canvas>
+</body>
+<script>
+    var sign = document.querySelector('#sign')
+    if (sign.getContext) {
+        var ctx = sign.getContext("2d")
+        sign.addEventListener("mousedown", function (event) {
+
+            ctx.beginPath()
+            ctx.moveTo(event.offsetX, event.offsetY)
+            console.log(event.offsetX, event.offsetY)
+            var mousemove = function (event) {
+                ctx.save()
+                ctx.strokeStyle = "black"
+                ctx.lineTo(event.offsetX, event.offsetY)
+                ctx.stroke()
+                ctx.restore()
+            }
+            sign.addEventListener("mousemove", mousemove)
+            sign.addEventListener("mouseup", function (event) {
+                sign.removeEventListener("mousemove", mousemove, false)
+            })
+
+        })
+        // beginPath的作用
+        // ctx.beginPath();
+        // ctx.moveTo(100.5, 20.5);
+        // ctx.lineTo(200.5, 20.5);
+        // ctx.stroke();
+        // ctx.beginPath();
+        // ctx.moveTo(100.5, 40.5);
+        // ctx.lineTo(200.5, 40.5)
+        // ctx.strokeStyle = '#f00';
+        // ctx.stroke();
+
+    }
+</script>
+
+</html>

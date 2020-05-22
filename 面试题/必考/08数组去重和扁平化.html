@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var b = [1, 1, 3, 4, 3, 7, 6, 4, 3, 4, 5, 6, 3]
+
+        // var b = a.sort()
+        let c = []
+        b.map((item) => {
+            if (c.indexOf(item) === -1) {
+                c.push(item)
+            }
+            // console.log(b.indexOf(item))
+            return c
+        })
+        console.log(c)
+
+        var arr = ['abc', 'abcd', 'sss', '2', 'd', 't', '2', 'ss', 'f', '22', 'd'];
+
+        //定义一个新的数组
+
+        var s = [];
+
+        //遍历数组
+
+        for (var i = 0; i < arr.length; i++) {
+
+            if (s.indexOf(arr[i]) == -1) {  //判断在s数组中是否存在，不存在则push到s数组中
+
+                s.push(arr[i])
+            }
+        }
+
+        console.log("s", s)
+        //数组扁平化
+        var a = [[1, 2, 3], [3, 4, 5], [6, 7, 8, 9, [11, 12, 13, 14, [15, 16, [14, [14, 16, 17, 19]]]]]]
+        //第一种
+        // a = a.flat(Infinity)
+        //第二种
+        // a = a.toString().split(',').map(item=>Number(item))
+        //第三种
+        a = JSON.stringify(a).replace(/(\[|\])/g, "").split(',').map(item => Number(item))
+        // console.log('数组扁平', a)
+        //第四种
+        var b = [...a]
+        console.log(b)
+
+
+        b.sort(function (a, b) {
+            return a - b
+        })
+        console.log("b", b)
+
+        //第五种 递归方法扁平化
+        function myfalt() {
+
+            let result = []
+            let _this = this
+            let fn = (arr) => {
+                for (var i = 0; i < arr.length; i++) {
+                    let item = arr[i]
+                    if (Array.isArray(item)) {
+                        fn(item)
+                        continue
+                    }
+                    result.push(item)
+                }
+            }
+            fn(_this)
+            return result
+        }
+        Array.prototype.myfalt = myfalt
+
+        var f = a.myfalt()
+        console.log("f", f)
+
+        //数组去重
+        var quchong = []
+        //第一种
+        // for(var i =0;i<f.length;i++){
+        //     var item = f[i]
+        //     if(quchong.indexOf(f[i]) === -1){
+        //         quchong.push(f[i])
+        //     }
+        // }
+        //第二种
+        // for(var i =0;i<f.length;i++){
+        //     var item = f[i]
+        //     if(f.indexOf(f[i]) === i){
+        //         quchong.push(f[i])
+        //     }
+        // }
+        //第三种
+        f = f.sort((a,b)=>a-b)
+        var hash = []
+        for(var i = 0;i<f.length;i++){
+            if(f[i]===hash[hash.length-1]){
+                continue
+            }
+            hash.push(f[i])
+        }
+        //第四种
+        var x =  new Set(f)
+
+        console.log("去重", x)
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

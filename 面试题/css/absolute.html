@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent {
+            background-color: black;
+            color: white;
+        }
+
+        #child {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id = "parent">
+        <div id = "child"></div>
+        111
+    </div> -->
+    <div id="click" style="position: relative;background: yellow">
+        我是包含块
+        <span style="position: absolute;">我是绝对定位元素</span>
+    </div>
+
+    <div style="position: relative;background: yellow">
+        我是包含块
+        <div style="position: absolute;">我是绝对定位元素</div>
+    </div>
+    </br>
+    <input type="checkbox" checked>
+    <script>
+        var click = document.querySelector("input[type = checkbox]")
+        debugger
+        click.addEventListener("click", function (event) {
+            
+            click.checked = false
+        })
+    </script>
+</body>
+
+</html>

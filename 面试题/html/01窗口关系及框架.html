@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 总结 -->
+<!-- <frameset rows="150,300,150"></frameset>
+    其中的每行都贯穿整个文档窗口。第一和最后一个框架被设为 150 像素高，第二行设置成 300 像素高。
+    您不能与 <frameset></frameset> 标签一起使用 <body></body> 标签
+    h5不支持
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            console.log('frame', window.frames[0])
+        }
+    </script>
+</head>
+
+<frameset rows='200,*'>
+    <frame src='01frame.html' name="topframe">
+        <frameset cols="50%,50%">
+            <frame src='01anotherframe.html' name="leftFrame">
+                <frame src='01yetanotherframe.html' name="rightFrame">
+        </frameset>
+        
+</frameset>
+</html>
